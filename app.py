@@ -1,10 +1,16 @@
-from flask import Flask
+from flask import Flask, jsonify, request, render_template
+import json
 
 app = Flask(__name__)
 
+student1 = {
+            "name": "Qusai",
+            "age": 15,
+            "title": "DevOps Engineer"}
 
-@app.route("/")
+@app.route("/", methods=['POST', 'GET'])
 def main():
-    return "<h!> Hello There </h1>"
+    return jsonify(student1)
 
 
+app.run(debug=True)
